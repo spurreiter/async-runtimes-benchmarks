@@ -105,6 +105,8 @@ _versions () {
 - go: $(go version)
 - java: $(java --version | head -1)
 - nodejs: $(node --version)
+- bun: $(bun --version)
+- deno: $(deno --version | head -1)
 - python: $(python3 --version)
 - rust: $(cargo --version)
 EOS

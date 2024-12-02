@@ -25,6 +25,8 @@ tasks in different language runtimes.
 - go: 1.23.3
 - java: 23.0.1
 - nodejs: 22.11.0
+- bun: 1.1.38
+- deno: 2.1.2
 - python: 3.13.0
 - rust: 1.83.0
 
