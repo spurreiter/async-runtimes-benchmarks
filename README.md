@@ -37,7 +37,7 @@ Lower values are better.
 | Implementation | 10k | 100k |    1M |
 | -------------- | --: | ---: | ----: |
 | dotnet         | 22M |  38M |  190M |
-| elixir         | 95M | 446M | 3854M |
+| elixir         | 88M | 343M | 3080M |
 | go             | 29M | 261M | 2571M |
 | java           | 93M | 170M | 1001M |
 | nodejs         | 26M | 107M |  666M |

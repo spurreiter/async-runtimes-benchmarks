@@ -8,98 +8,98 @@ set +x
 parallel=${2:-10000}
 
 status () {
-  local opts
-  if [ $(uname) = "Darwin" ]; then 
-    opts="-l 15"
-  else 
-    opts="-b -n15"
-  fi
-  top $opts -pid $1 -stats pid,cpu,mem | egrep "$1"
+	local opts
+	if [ $(uname) = "Darwin" ]; then 
+	opts="-l 15"
+	else 
+	opts="-b -n15"
+	fi
+	top $opts -pid $1 -stats pid,cpu,mem | egrep "$1"
 }
 
 _dotnet () {
-  cd dotnet
-  dotnet publish -c Release --self-contained true
-  exec ./bin/Release/net9.0/osx-arm64/publish/dotnet $parallel &
-  status $!
+	cd dotnet
+	dotnet publish -c Release --self-contained true
+	exec ./bin/Release/net9.0/osx-arm64/publish/dotnet $parallel &
+	status $!
 }
 
 _elixir () {
-  cd elixir
-  exec elixir tasks.ex $parallel &
-  status $!
+	cd elixir
+	exec elixir main.exs $parallel &
+	status $!
 }
 
 _go () {
-  cd go
-  go build
-  exec ./coroutines $parallel &
-  status $!
+	cd go
+	go build
+	exec ./coroutines $parallel &
+	status $!
 }
 
 _java () {
-  cd java
-  exec java VirtualThreads.java $parallel &
-  status $! 
+	cd java
+	exec java VirtualThreads.java $parallel &
+	status $! 
 }
 
 _nodejs () {
-  cd nodejs
-  exec node main.js $parallel &
-  status $!
+	cd nodejs
+	exec node main.js $parallel &
+	status $!
 }
 
 _bun () {
-  cd nodejs
-  exec bun run main.js $parallel &
-  status $!
+	cd nodejs
+	exec bun run main.js $parallel &
+	status $!
 }
 
 _deno () {
-  cd nodejs
-  exec deno run main.js $parallel &
-  status $!
+	cd nodejs
+	exec deno run main.js $parallel &
+	status $!
 }
 
 _python () {
-  cd python
-  exec python3 main.py $parallel &
-  status $!
+	cd python
+	exec python3 main.py $parallel &
+	status $!
 }
 
 _rust_async_std () {
-  cd rust_async_std
-  cargo build -r 
-  exec ./target/release/rust_async_std $parallel &
-  local pid=$!
-  status $pid 
+	cd rust_async_std
+	cargo build -r 
+	exec ./target/release/rust_async_std $parallel &
+	local pid=$!
+	status $pid 
 }
 
 _rust_futures () {
-  cd rust_futures
-  cargo build -r 
-  exec ./target/release/rust_futures $parallel &
-  local pid=$!
-  status $pid 
+	cd rust_futures
+	cargo build -r 
+	exec ./target/release/rust_futures $parallel &
+	local pid=$!
+	status $pid 
 }
 
 _rust_tokio () {
-  cd rust_tokio
-  cargo build -r 
-  exec ./target/release/rust_tokio $parallel &
-  local pid=$!
-  status $pid 
+	cd rust_tokio
+	cargo build -r 
+	exec ./target/release/rust_tokio $parallel &
+	local pid=$!
+	status $pid 
 }
 
 _all () {
-  for cmd in dotnet elixir go java nodejs bun deno python rust_async_std rust_futures rust_tokio; do
-    echo === $cmd ===
-    ./run.sh $cmd $parallel
-  done
+	for cmd in dotnet elixir go java nodejs bun deno python rust_async_std rust_futures rust_tokio; do
+		echo === $cmd ===
+		./run.sh $cmd $parallel
+	done
 }
 
 _versions () {
-  cat << EOS
+	cat << EOS
 - dotnet: $(dotnet --version)
 - elixir: $(elixir --version | tail -1)
 - go: $(go version)
@@ -110,6 +110,10 @@ _versions () {
 - python: $(python3 --version)
 - rust: $(cargo --version)
 EOS
+}
+
+_docs () {
+	markedpp -s -i README.md
 }
 
 # ... ignition ...

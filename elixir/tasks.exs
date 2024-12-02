@@ -1,3 +1,6 @@
+# Tasks are a higher-level abstraction and they will include additional features
+# for tracking responses.
+
 defmodule Tasks do
   use Task
 
