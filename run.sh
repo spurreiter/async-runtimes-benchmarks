@@ -45,7 +45,7 @@ _java () {
 
 _nodejs () {
 	cd nodejs
-	exec node main.js $parallel &
+	exec node node.js $parallel &
 	status $!
 }
 

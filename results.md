@@ -26,7 +26,7 @@ Lower values are better.
 | elixir         | 88M | 343M | 3080M |
 | go             | 29M | 261M | 2571M |
 | java           | 93M | 170M | 1001M |
-| nodejs         | 26M | 107M |  666M |
+| nodejs         | 24M |  93M |  568M |
 | bun            | 22M |  69M |  541M |
 | deno           | 35M | 132M |  891M |
 | python         | 27M | 139M | 1258M |
