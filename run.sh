@@ -92,7 +92,7 @@ _rust_tokio () {
 }
 
 _all () {
-  for cmd in dotnet elixir go java nodejs python rust_async_std rust_futures rust_tokio; do
+  for cmd in dotnet elixir go java nodejs bun deno python rust_async_std rust_futures rust_tokio; do
     echo === $cmd ===
     ./run.sh $cmd $parallel
   done
