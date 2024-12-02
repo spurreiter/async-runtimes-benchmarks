@@ -49,6 +49,18 @@ _nodejs () {
   status $!
 }
 
+_bun () {
+  cd nodejs
+  exec bun run main.js $parallel &
+  status $!
+}
+
+_deno () {
+  cd nodejs
+  exec deno run main.js $parallel &
+  status $!
+}
+
 _python () {
   cd python
   exec python3 main.py $parallel &
