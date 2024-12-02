@@ -1,16 +1,11 @@
 import asyncio
 import sys
 
-async def perform_task():
-    await asyncio.sleep(10)
-
-
 async def main(num_tasks):
     tasks = []
 
     for task_id in range(num_tasks):
-        task = asyncio.create_task(perform_task())
-        tasks.append(task)
+        tasks.append(asyncio.sleep(10))
 
     await asyncio.gather(*tasks)
 

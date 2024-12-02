@@ -1,0 +1,4 @@
+dotnet/bin
+dotnet/obj
+go/coroutines
+rust*/target

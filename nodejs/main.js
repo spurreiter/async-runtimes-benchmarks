@@ -1,5 +1,4 @@
 const util = require('util');
-
 const delay = util.promisify(setTimeout);
 
 async function runTasks(numTasks) {
